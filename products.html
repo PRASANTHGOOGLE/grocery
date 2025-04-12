@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Listing | FreshMart</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      baackground-color: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2a9d8f;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .product-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+    .product-card h4 {
+      margin: 0.5rem 0;
+    }
+    .product-card p {
+      color: #777;
+      font-size: 0.95rem;
+    }
+    .product-card .price {
+      color: #2a9d8f;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    .product-card button {
+      background-color: #2a9d8f;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .product-card button:hover {
+      background-color: #21867a;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🥬 FreshMart</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Product Listing</a></li>
+      <li><a href="cart.html">Cart</a></li>
+    </ul>
+  </nav>
+
+  <div class="product-container">
+    <h2 style="text-align: center; color: #2a9d8f;">Shop Fresh Groceries</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Apples" alt="Organic Apples" />
+        <h4>Organic Apples</h4>
+        <p>Freshly picked from local farms</p>
+        <p class="price">$2.99/kg</p>
+        <button onclick="addToCart('Organic Apples')">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Bananas" alt="Bananas" />
+        <h4>Bananas</h4>
+        <p>Sweet and ripe bananas</p>
+        <p class="price">$1.49/kg</p>
+        <button onclick="addToCart('Bananas')">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Milk" alt="Milk" />
+        <h4>Fresh Milk</h4>
+        <p>Full cream dairy milk</p>
+        <p class="price">$0.99/L</p>
+        <button onclick="addToCart('Milk')">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/150?text=Tomatoes" alt="Tomatoes" />
+        <h4>Tomatoes</h4>
+        <p>Juicy red tomatoes</p>
+        <p class="price">$1.99/kg</p>
+        <button onclick="addToCart('Tomatoes')">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addToCart(productName) {
+      alert(productName + " added to cart!");
+      // You can expand this to store items in localStorage or a cart array
+    }
+  </script>
+</body>
+</html>

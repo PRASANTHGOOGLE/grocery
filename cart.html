@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart | FreshMart</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f9fc;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #ffffff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2a9d8f;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    .cart-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    h2 {
+      text-align: center;
+      color: #2a9d8f;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .cart-item-info {
+      flex-grow: 1;
+    }
+    .cart-item-info h4 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+    .cart-item-info p {
+      margin: 0.3rem 0;
+      color: #777;
+    }
+    .cart-item button {
+      background-color: #e76f51;
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .cart-summary {
+      margin-top: 2rem;
+      text-align: right;
+      font-size: 1.2rem;
+    }
+    .checkout-btn {
+      background-color: #2a9d8f;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .checkout-btn:hover {
+      background-color: #21867a;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">🥬 FreshMart</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Product Listing</a></li>
+      <li><a href="#">Cart</a></li>
+    </ul>
+  </nav>
+
+  <div class="cart-container">
+    <h2>Your Shopping Cart</h2>
+    <div class="cart-item">
+      <div class="cart-item-info">
+        <h4>Organic Apples</h4>
+        <p>$2.99 x 2kg</p>
+      </div>
+      <div>
+        <p>$5.98</p>
+        <button onclick="removeItem(this)">Remove</button>
+      </div>
+    </div>
+    <div class="cart-item">
+      <div class="cart-item-info">
+        <h4>Bananas</h4>
+        <p>$1.49 x 3kg</p>
+      </div>
+      <div>
+        <p>$4.47</p>
+        <button onclick="removeItem(this)">Remove</button>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <strong>Total: $10.45</strong><br />
+      <button class="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+ 
+    <script>
+  function updateTotal() {
+    const items = document.querySelectorAll('.cart-item');
+    let total = 0;
+    items.forEach(item => {
+      const priceText = item.querySelector('div > p').innerText.replace('$', '');
+      total += parseFloat(priceText);
+    });
+    document.querySelector('.cart-summary strong').innerText = `Total: $${total.toFixed(2)}`;
+  }
+
+  function removeItem(button) {
+    const item = button.closest('.cart-item');
+    item.remove();
+    updateTotal();
+    alert("Item removed from cart.");
+  }
+
+  // Calculate total on page load
+  updateTotal();
+</script>
+
+  
+</body>
+</html>
